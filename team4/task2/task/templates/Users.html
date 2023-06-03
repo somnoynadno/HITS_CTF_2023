@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Users</title>
+</head>
+<body>
+    <h1>Users</h1>
+
+    <!-- Добавьте форму для поиска пользователей -->
+    <form method="GET" action="/">
+        <input type="text" name="search" placeholder="Search by username">
+        <button type="submit">Search</button>
+    </form>
+
+    <ul>
+        {% for row in rows %}
+        <li>{{ row }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

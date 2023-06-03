@@ -1,0 +1,4 @@
+__pycache__/
+build/
+*.kdev4
+.vs
