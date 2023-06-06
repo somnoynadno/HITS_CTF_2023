@@ -1,0 +1,28 @@
+version: "3"
+services:
+  db:
+    container_name: redbutton_db
+    image: mysql:latest
+    environment:
+      - MYSQL_DATABASE=redbutton_db
+      - MYSQL_ROOT_PASSWORD=dA7Vb2G7&%tw12O
+    volumes:
+      - "./db:/docker-entrypoint-initdb.d"
+    restart: always
+    networks:
+      - private
+  www:
+    build: .
+    container_name: redbutton_web
+    depends_on:
+      - db
+    ports:
+      - "80:80"
+    restart: always
+    networks:
+      - default
+      - private
+networks:
+  default:
+  private:
+    internal: true

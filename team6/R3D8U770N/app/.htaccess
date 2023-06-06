@@ -1,0 +1,7 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)$ /index.php [R=301,L]
+    AddDefaultCharset UTF-8
+    php_flag display_errors on
+</IfModule>
