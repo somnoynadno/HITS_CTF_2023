@@ -1,0 +1,24 @@
+﻿@model IndexModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h3 class="display-4">Говорят, что программистам уже не нужна математика. Докажи обратное! Реши 1000 задач и получи флаг!!!!!!!!!</h3>
+</div>
+
+<form asp-action="Index" asp-controller="Home" method="post">
+    <input type="hidden" name="expression" value="@Model.Expression"/>
+    <input type="hidden" name="hash" value="@Model.Hash"/>
+    <input type="hidden" name="guid" value="@Model.Guid"/>
+    
+    @if (Model.IsWrong)
+    {
+        <p>Неправильно, учи математику, программист</p>
+    }
+    
+    <p>@Model.Expression</p>
+    <input type="number" name="result"/>
+    <button type="submit">Отправить</button>
+</form>
