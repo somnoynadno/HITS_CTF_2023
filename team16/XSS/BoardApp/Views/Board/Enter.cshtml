@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Enter board";
+}
+@model BoardShortDTO
+<div class="d-flex flex-wrap flex-row justify-content-center align-content-center h-100 flex-grow-1 flex-fill">
+    <form asp-action="enter" asp-route-id="@ViewBag.Id" method="post"
+          class="d-flex flex-wrap flex-row align-content-center justify-content-center flex-grow-1">
+        <h4 class="display-6">Entering board '@Model.Name'</h4>
+        <div asp-validation-summary="All" class="text-danger mt-2"></div>
+
+        <div class="d-flex flex-row mt-3 justify-content-end col-12 btn-group">
+            <button type="button" class="btn btn-danger" return>Cancel</button>
+            <button type="submit" class="btn btn-primary">Enter</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,110 @@
+html {
+    font-size: 14px;
+}
+
+* {
+    transition-property: all !important;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+    transition-duration: 150ms !important;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.card-covert-content {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.card-body:hover .card-covert-content {
+    visibility: visible;
+    opacity: 1;
+}
+
+.app-card-body:hover .card-covert-content {
+    visibility: visible;
+    opacity: 1;
+}
+
+.always-visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.message-body:hover .message-covert-content {
+    visibility: visible;
+    opacity: 1;
+}
+
+.message-covert-content {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: none;
+}
+
+.btn-outline-secondary:hover {
+    border-color: rgb(222, 226, 230);
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+.btn:active {
+    opacity: 1;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex: 0 0 initial;
+}
+
+body {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    display: flex;
+    padding: 1rem;
+}
+
+body > div.container {
+    flex: 1 1 auto;
+}
+
+footer > div.container {
+    display: flex;
+    justify-content: center;
+}
+
+.input-group > .input-group-append > .btn, .input-group > .input-group-append > .input-group-text, .input-group > .input-group-prepend:first-child > .btn:not(:first-child), .input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child), .input-group > .input-group-prepend:not(:first-child) > .btn, .input-group > .input-group-prepend:not(:first-child) > .input-group-text {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.clear-button {
+}
+
+    .clear-button:hover {
+        color: var(--bs-danger);
+    }
+
+dl, ol, ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.nav-item > form {
+    padding: 0px;
+}

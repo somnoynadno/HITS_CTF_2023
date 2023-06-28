@@ -1,0 +1,28 @@
+﻿@model CreateUserDTO
+@{
+    ViewData["Title"] = "Registration";
+}
+<div class="d-flex flex-wrap flex-row justify-content-center align-content-center h-100 flex-grow-1 flex-fill">
+    <form asp-controller="account" asp-action="register" method="post"
+          class="d-flex flex-wrap flex-row align-content-center justify-content-center flex-grow-1">
+        <div class="from-group col-12">
+            <label asp-for="Username">Username</label>
+            <input asp-for="Username" class="form-control" />
+            <span asp-validation-for="Username" class="text-danger"></span>
+        </div>
+
+        <div class="from-group col-12">
+            <label asp-for="Password">Password</label>
+            <input asp-for="Password" class="form-control" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+
+        <div class="from-group col-12">
+            <label asp-for="RepeatPassword">Repeat password</label>
+            <input asp-for="RepeatPassword" class="form-control" />
+            <span asp-validation-for="RepeatPassword" class="text-danger"></span>
+        </div>
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <button type="submit" class="btn btn-primary col-12 mt-3">Register</button>
+    </form>
+</div>

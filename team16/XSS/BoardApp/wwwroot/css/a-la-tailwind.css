@@ -1,0 +1,30 @@
+.text-sm {
+    font-size: smaller;
+}
+
+.text-base {
+}
+
+.text-lg {
+    font-size: larger !important;
+}
+
+.ml-auto {
+    margin-left: auto;
+}
+
+.mr-auto {
+    margin-left: auto;
+}
+
+.ml-1 {
+    margin-left: 0.5rem;
+}
+
+.mr-1 {
+    margin-right: 0.5rem;
+}
+
+.w-max-50 {
+    max-width: 50%;
+}

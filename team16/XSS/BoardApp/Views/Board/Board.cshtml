@@ -1,0 +1,136 @@
+﻿@{
+    ViewData["Title"] = "Boards list";
+}
+@model BoardDTO;
+
+<div id="manageUsersDialog" class="modal fade">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content p-2">
+            <div class="modal-header">
+                <h5 class="modal-title display-5">Manage members</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div id="modalContainer">
+                <div class="modal-body row">
+                    <section class="col m-4">
+                        <div class="row">
+                            <div class="col d-flex">
+                                <h5 class="display-6 mx-auto">Board members</h5>
+                            </div>
+                        </div>
+                        <div id="boardMembers" class="bg-outline-red">
+                            @{
+                                foreach (var member in Model.Members)
+                                {
+                                    <div class="row m-2">
+                                        <div class="col">
+                                            <div class="card">
+                                                <div class="card-body d-flex justify-content-between">
+                                                    <p class="fs-4 my-auto text-center">@member.Username</p>
+                                                    @if (member.Id == Model.Creator.Id)
+                                                    {
+                                                        <p class="fs-4 text-center my-auto text-success">You</p>
+                                                    }
+                                                    else
+                                                    {
+                                                        <button type="button" class="btn btn-outline-danger kickButton" id="@member.Id">Kick</button>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </section>
+                    <section class="col m-4">
+                        <div class="row">
+                            <div class="col d-flex">
+                                <h5 class="display-6 mx-auto">Add users</h5>
+                            </div>
+                        </div>
+                        <div id="otherUsers" class="bg-outline-red">
+                            @await Html.PartialAsync("List", (List<UserShortDTO>) ViewBag.UserNotInBoard)
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<input type="hidden" value="@Model.Id" id="board-id" />
+<div class="text-center d-flex flex-column gap-2">
+    <section>
+        <div class="flex-row d-flex flex-wrap justify-content-center app-card-body">
+            <h4 class="display-6">
+                @Model.Name
+            </h4>
+            <div class="d-flex flex-wrap ml-auto justify-content-center align-content-center gap-1">
+                @if (User.Identity!.Name == Model.Creator.Id.ToString())
+                {
+                    <button class="btn btn-success card-covert-content" id="openManagementModalButton" board-id="@Model.Id">
+                        Manage members
+                    </button>
+                    <a asp-action="edit" asp-route-id="@Model.Id" class="btn btn-warning card-covert-content">
+                        Edit
+                    </a>
+                    <a asp-action="delete" asp-route-id="@Model.Id" class="btn btn-danger card-covert-content">
+                        Delete
+                    </a>
+                }
+                @if (Model.IsPrivate)
+                {
+                    <span class="border text-danger border-danger p-2 rounded">PRIVATE</span>
+                }
+            </div>
+        </div>
+    </section>
+    <section class="card">
+        <h4 class="card-header">Messages</h4>
+        <div class="d-flex flex-column flex-wrap gap-2" id="message-container">
+            <div class="d-flex flex-column flex-wrap card-body gap-2" id="message-content">
+                @foreach (var message in Model.Messages)
+                {
+                    <div class="p-2 border rounded message-body">
+                        <div class="d-flex flex-row flex-wrap">
+                            <p class="p-1 m-0 text-lg text-start">
+                                @Html.Raw(message.Content)
+                            </p>
+                            @if (message.Author.Id.ToString() == User.Identity!.Name
+                           || Model.Creator.Id.ToString() == User.Identity!.Name)
+                            {
+                                <div class="ml-auto text-danger message-covert-content">
+                                    <span style="cursor: pointer;" class="" message-id="@message.Id" remove-message>
+                                        X
+                                    </span>
+                                </div>
+                            }
+                        </div>
+                        <div class="d-flex flex-row justify-content-end">
+                            <small class="text-muted">@message.Author.Username</small>
+                        </div>
+                    </div>
+                }
+                @if (Model.Messages.Count == 0)
+                {
+                    <div class="alert alert-light mb-0">
+                        <h4 class="text-center">There are no messages in this group</h4>
+                        <div class="text-center">C'mon, send one!</div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="input-group input-group-lg">
+            <input id="message-input" type="text" class="form-control" placeholder="Enter message">
+            <div class="input-group-append">
+                <button send class="btn btn-outline-primary btn-lg" type="button">Send</button>
+            </div>
+        </div>
+    </section>
+</div>
+@section Scripts {
+    <script src="~/js/board.js"></script>
+}

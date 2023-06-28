@@ -1,0 +1,17 @@
+﻿@using Microsoft.AspNetCore.Mvc.ModelBinding;
+@{
+    ViewData["Title"] = "Ошибка";
+}
+@model ModelStateDictionary
+
+<div class="text-center">
+   <h3 class="display-6">Переданные данные содержат @Model.ErrorCount ошибок:</h3>
+   <ul class="">
+       @foreach (var pair in Model)
+        {
+            <li>
+                @pair.Value;
+            </li>
+        }
+    </ul>
+</div>

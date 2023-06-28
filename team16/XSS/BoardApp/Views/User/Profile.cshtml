@@ -1,0 +1,64 @@
+﻿@model UserDTO
+@{
+    ViewData["Title"] = "Registration";
+}
+<div class="d-flex flex-wrap flex-column flex-grow-1">
+    <section class="app-card-body d-flex flex-row flex-wrap">
+        <h4 class="display-5">My profile</h4>
+        <div class="card-covert-content ml-auto d-flex flex-wrap align-content-center">
+            <a class="btn btn-primary mt-2 ml-auto"
+               asp-action="edit">Edit profile</a>
+        </div>
+    </section>
+    <div class="from-group col-12">
+        <span class="text-muted">Username</span>
+        <p class="border rounded p-2">@Model.Username</p>
+    </div>
+    <div class="from-group card col-12 mt-3">
+        <h4 class="card-header">My boards</h4>
+        <div class="p-3 d-flex flex-column flex-wrap gap-2">
+            @foreach (var board in Model.Boards)
+            {
+                <div class="card d-flex hoverable flex-row flex-wrap outer-card-body align-content-center justify-content-center">
+                    <div class="card-body d-flex flex-row flex-wrap align-content-center">
+                        <h5 class="text-base d-flex flex-row flex-wrap align-content-center">
+                            <a asp-controller="board" asp-action="board" asp-route-id="@board.Id" class="text-dark text-decoration-none">
+                                @board.Name
+                            </a>
+                        </h5>
+
+                        <div class="ml-auto d-flex flex-row flex-wrap gap-1">
+                            @if (User.Identity != null && User.Identity.Name == board.CreatorId.ToString())
+                            {
+                                <div class="d-flex flex-row flex-wrap card-covert-content">
+                                    <a class="btn btn-warning" asp-controller="board" asp-action="edit" asp-route-id="@board.Id">
+                                        Edit
+                                    </a>
+                                </div>
+                                <div class="d-flex flex-row flex-wrap card-covert-content">
+                                    <a class="btn btn-danger" asp-controller="board" asp-action="delete" asp-route-id="@board.Id">
+                                        Delete
+                                    </a>
+                                </div>
+                            }
+                            @if (board.IsPrivate)
+                            {
+                                <span class="border text-danger border-danger p-2 rounded">PRIVATE</span>
+                            }
+                        </div>
+
+                    </div>
+
+                </div>
+            }
+            @if (Model.Boards.Count == 0)
+            {
+                <div class="alert alert-light mb-0">
+                    <h4 class="text-center">You are not a member of any group by now</h4>
+                    <div class="text-center">Either create a group or join an existing one</div>
+                </div>
+            }
+        </div>
+    </div>
+
+</div>

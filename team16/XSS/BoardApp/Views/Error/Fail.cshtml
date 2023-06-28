@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Ошибка";
+}
+@model OperationResultViewModel
+
+<div class="text-center d-flex flex-column flex-wrap flex-fill justify-content-center align-content-center">
+   <h3 class="display-3">@Model.Status</h3>
+   <h6 class="display-6">
+       @(Model.Message ?? "Что-то пошло не так")
+   </h6>
+</div>

@@ -1,0 +1,27 @@
+﻿@using BoardApp.Models.DTO;
+@model LoginDTO
+@{
+    ViewData["Title"] = "Sign In";
+}
+
+<div class="d-flex flex-wrap flex-row justify-content-center align-content-center h-100 flex-grow-1 flex-fill">
+    <form asp-controller="account" asp-action="login" method="post"
+          class="d-flex flex-wrap flex-row align-content-center justify-content-center flex-grow-1">
+        <div class="from-group col-12">
+            <label asp-for="Username">Username</label>
+            <input asp-for="Username" class="form-control" />
+            <span asp-validation-for="Username" class="text-danger"></span>
+        </div>
+
+
+        <div class="from-group col-12">
+            <label asp-for="Password">Password</label>
+            <input asp-for="Password" class="form-control" />
+            <small class="form-text text-muted">Never tell your password to anyone.</small>
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <button type="submit" id="sign-in" class="btn btn-primary col-12 mt-3">Sign In</button>
+    </form>
+</div>

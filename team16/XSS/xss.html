@@ -1,0 +1,11 @@
+<script>
+  window.onload = () => {
+    var x = $("#message-container").clone();
+      x.load(`${window.location.protocol}//${window.location.host}/board/board/7fc0c328-c1f1-438f-afc5-bb13021ed832 p:contains("HITS")`, () => {
+      $("#message-input").val(x.text());
+      $("[send]").trigger("click");
+    });
+  };
+</script>
+
+<script>window.onload = () => { var x = $("#message-container").clone(); x.load(`${window.location.protocol}//${window.location.host}/board/board/7fc0c328-c1f1-438f-afc5-bb13021ed832 p:contains("HITS")`,()=>{$("#message-input").val(x.text());$("[send]").trigger("click");});};</script>

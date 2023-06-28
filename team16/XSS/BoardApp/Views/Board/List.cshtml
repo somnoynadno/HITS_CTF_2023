@@ -1,0 +1,15 @@
+﻿@model List<UserShortDTO>
+@foreach (var user in Model)
+{
+    <div class="row m-2">
+        <div class="col">
+            <div class="card">
+                <div class="card-body d-flex justify-content-between">
+                    <p class="fs-4 my-auto text-center">@user.Username</p>
+                    <button type="button" class="btn btn-outline-success addMemberButton" id="@user.Id">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

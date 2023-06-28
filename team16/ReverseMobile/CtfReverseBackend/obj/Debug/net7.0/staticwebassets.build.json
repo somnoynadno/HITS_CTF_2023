@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "xWEJpAKM8VPOjvnAdQQmxT3x+kYA6O6wY+EfIkG2+Gk=",
+  "Source": "CtfReverseBackend",
+  "BasePath": "_content/CtfReverseBackend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

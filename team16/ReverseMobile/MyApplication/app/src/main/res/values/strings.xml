@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">CTFApp</string>
+
+    <string name="form">HITS{%1$s}</string>
+    <string name="key1">m0nd4y</string>
+    <string name="key2">7u35d4y</string>
+    <string name="key3">w3dn35d4y</string>
+    <string name="key4">7hu25d4y</string>
+    <string name="key5">f21d4y</string>
+    <string name="key6">547u2d4y</string>
+    <string name="key7">5und4y</string>
+
+    <string name="secret_login">nope</string>
+    <string name="secret_password">try another way dude</string>
+</resources>

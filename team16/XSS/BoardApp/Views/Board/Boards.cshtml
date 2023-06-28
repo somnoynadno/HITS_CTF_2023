@@ -1,0 +1,78 @@
+﻿@{
+    ViewData["Title"] = "Boards list";
+}
+@model List<BoardShortDTO>;
+
+<div class="">
+    <section>
+        <div class="d-flex flex-row flex-wrap app-card-body">
+            <h3 class="display-6">
+                Boards
+            </h3>
+            @if (User.Identity != null && User.Identity.IsAuthenticated)
+            {
+                <div class="d-flex flex-wrap ml-auto justify-content-center align-content-center card-covert-content">
+                    <a asp-action="create" class="btn btn-primary">
+                        Create
+                    </a>
+                </div>
+            }
+        </div>
+        <!--
+
+        <div class="d-flex flex-row flex-wrap">
+            <form asp-action="boards" method="get">
+                <input type="text" class="" placeholder="Search by name..." name="name" value="@(ViewBag.Name)"/>
+                <button class="btn btn-primary" type="submit">Go</button>
+            </form>
+        </div>
+        -->
+    </section>
+    <section>
+        <div class="from-group col-12 mt-3">
+            <div class="flex-column d-flex flex-wrap gap-2">
+                @foreach (var board in Model)
+                {
+                    <div class="card d-flex flex-row flex-wrap align-content-center justify-content-center">
+                        <div class="card-body d-flex flex-row flex-wrap align-content-center">
+                            <h5 class="text-base d-flex flex-row flex-wrap align-content-center">
+                                <a asp-action="board" asp-route-id="@board.Id" class="text-dark text-decoration-none">
+                                    @board.Name
+                                </a>
+                            </h5>
+
+                            <div class="ml-auto d-flex flex-row flex-wrap gap-1">
+                                @if (User.Identity != null && User.Identity.Name == board.CreatorId.ToString())
+                                {
+                                    <div class="d-flex flex-row flex-wrap card-covert-content">
+                                        <a class="btn btn-warning" asp-action="edit" asp-route-id="@board.Id">
+                                            Edit
+                                        </a>
+                                    </div>
+                                    <div class="d-flex flex-row flex-wrap card-covert-content">
+                                        <a class="btn btn-danger" asp-action="delete" asp-route-id="@board.Id">
+                                            Delete
+                                        </a>
+                                    </div>
+                                }
+                                @if (board.IsPrivate)
+                                {
+                                    <span class="border text-danger border-danger p-2 rounded">PRIVATE</span>
+                                }
+                            </div>
+
+                        </div>
+
+                    </div>
+                }
+                @if (Model.Count == 0)
+                {
+                    <div class="alert alert-light mb-0">
+                        <h4 class="text-center">There are no boards yet</h4>
+                        <div class="text-center">Why don't you create one?</div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+</div>

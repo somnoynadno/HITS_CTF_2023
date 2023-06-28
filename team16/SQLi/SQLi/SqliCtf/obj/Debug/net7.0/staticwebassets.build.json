@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "rJ6Km+fzIj8kP41D/l2AUtwj5bPur/HXYcl8yTlEgzE=",
+  "Source": "SqliCtf",
+  "BasePath": "_content/SqliCtf",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

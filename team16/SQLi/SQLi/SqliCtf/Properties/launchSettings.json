@@ -1,0 +1,44 @@
+{
+  "profiles": {
+    "http": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "http://localhost:5153"
+    },
+    "https": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_FLAG": "HITS{child_predator}",
+        "ASPNETCORE_DEFAULT_CONN": "Host=localhost;Username=postgres;Password=ilikehex;Database=testdb;",
+        "ASPNETCORE_INIT_CONN": "Host=localhost;Username=postgres;Password=ilikehex;"
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "https://localhost:7214;http://localhost:5153"
+    },
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  },
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:8252",
+      "sslPort": 44398
+    }
+  }
+}

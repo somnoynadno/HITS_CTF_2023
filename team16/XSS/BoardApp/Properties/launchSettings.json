@@ -1,0 +1,40 @@
+{
+  "profiles": {
+    "http": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "http://localhost:5173"
+    },
+    "https": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        //"ASPNETCORE_DB_CONN": "Host=localhost;Username=postgres;Password=1234;Database=XssDb;",
+        "ASPNETCORE_DB_CONN": "Host=localhost;Username=xss;Password=xss;Database=XssDb;",
+        "CTF_FLAG": "HITS{go_cum_yourself}"
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "https://localhost:27001;http://localhost:27000"
+    },
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  },
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:52034",
+      "sslPort": 44335
+    }
+  }
+}

@@ -1,0 +1,65 @@
+version: '3.4'
+
+services:
+  virtual-client: 
+    container_name: virtualclient
+    image: happypiece/virtualclient:latest
+    #build: 
+      #context: ./VirtualClient
+    depends_on:
+      - app
+    ports:
+      - "0.0.0.0:10000:10000"
+    environment:
+      ASPNETCORE_HTTP_PORT: https://+:10001 
+      ASPNETCORE_URLS: http://+:10000
+      CLIENT_VISIT_FREQUENCY: 15
+      CLIENT_USERNAME: cocker
+      CLIENT_PASSWORD: tWG4p8NEHk
+      CLIENT_CONNECTION_STRING: http://boardapp:27000
+      CLIENT_TARGET_BOARD_ID: 4e6b606e-f880-4af1-8194-a15c8053731c
+    restart: always
+    networks: 
+      - xss-network
+
+  app:
+    container_name: boardapp
+    image: happypiece/boardapp:latest
+    #build: 
+      #context: ./BoardApp
+    depends_on:
+      - db
+    ports:
+      - "0.0.0.0:27000:27000"
+      - "0.0.0.0:27001:27001"
+    environment:
+      ASPNETCORE_DB_CONN: "host=database-host; port=5432; database=XssDb; username=xss; password=xss"
+      ASPNETCORE_HTTP_PORT: https://+:27001 
+      ASPNETCORE_URLS: http://+:27000
+      CTF_FLAG: HITS{go_cum_yourself}
+
+    restart: always
+    networks: 
+      - xss-network
+
+  db:
+    container_name: boardapp-db
+    hostname: database-host
+    image: postgres:latest
+    expose:
+      - "5432"
+    environment:
+      - POSTGRES_PASSWORD=xss
+      - POSTGRES_USER=xss
+      - POSTGRES_DB=XssDb
+    volumes:
+      - xss-db:/var/lib/postgresql/data
+    restart: always
+    networks: 
+      - xss-network
+
+volumes:
+  xss-db:
+
+networks:
+  xss-network:

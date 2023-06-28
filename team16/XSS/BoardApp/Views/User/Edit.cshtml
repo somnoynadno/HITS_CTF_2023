@@ -1,0 +1,17 @@
+﻿@model EditUserDTO
+@{
+    ViewData["Title"] = "Profile edit";
+}
+<form asp-controller="user" asp-action="edit" method="post"
+      class="d-flex flex-wrap flex-column justify-content-center flex-grow-1">
+    <div class="from-group col-12">
+        <label asp-for="Username">Username</label>
+        <input asp-for="Username" class="form-control" />
+    </div>
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="d-flex flex-row mt-3 justify-content-end btn-group">
+        <button type="button" class="btn btn-danger" return>Cancel</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+    </div>
+</form>
