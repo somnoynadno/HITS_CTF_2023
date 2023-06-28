@@ -1,0 +1,12 @@
+---
+- src: https://github.com/nginxinc/ansible-role-nginx
+  name: nginx
+  version: "0.23.0"
+
+- src: https://github.com/nginxinc/ansible-role-nginx-config
+  name: nginx_config
+  version: "0.5.0"
+
+- src: https://github.com/geerlingguy/ansible-role-certbot
+  name: certbot
+  version: "5.0.1"

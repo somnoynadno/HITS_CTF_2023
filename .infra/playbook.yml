@@ -1,0 +1,8 @@
+---
+- name: "Configure reverse-proxy and certificates"
+  hosts: all
+  become: true
+  roles:
+#    - nginx
+    - certbot
+    - nginx_config
