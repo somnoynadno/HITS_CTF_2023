@@ -3,4 +3,4 @@ services:
     vuln-ssh-server:
         build: ./
         ports: 
-            - "2201:2201"
+            - "7006:2201"

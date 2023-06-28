@@ -13,7 +13,7 @@ services:
       - ASPNETCORE_FLAG=HITS{4ddr3ss_1s_l3n1na_36_k0rpu5_no_2}
       - ASPNETCORE_DB_CONN=Server=db;Port=5432;Database=CtfDb;User ID=postgres;password=1234;
     ports:
-      - "5000:80"
+      - "7000:80"
     restart: always
     networks:
       - ctfnet

@@ -14,7 +14,7 @@ services:
       - ASPNETCORE_INIT_CONN=Host=db;port=5432;Username=postgres;Password=ilikehex;
       - ASPNETCORE_DEFAULT_CONN=Host=db;port=5432;Username=postgres;Password=ilikehex;Database=testdb;
     ports:
-      - "5000:80"
+      - "7001:80"
     restart: always
     networks:
       - ctfnet
@@ -28,6 +28,6 @@ services:
       - POSTGRES_PASSWORD=ilikehex
       - POSTGRES_DB=testdb
     ports:
-      - "5432"
+      - "5433"
     networks:
       - ctfnet

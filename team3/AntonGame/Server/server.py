@@ -8,7 +8,7 @@ from flask import Flask, request
 logging.basicConfig(level=logging.INFO if os.getenv("ENV") == "PRODUCTION" else logging.DEBUG,
         format='[%(asctime)s] [%(name)s] [%(levelname)s]: %(message)s', datefmt='%d-%b-%y %H:%M:%S')
 
-FLAG = "SECRET" #os.getenv("FLAG")
+FLAG = "HITS{game_An3o$n_w1N12}" #os.getenv("FLAG")
 
 FERNET_KEY = b'gNVoRkn46rMECawSZcbEvLeypU1EDsQE_9Z_ahzNYt8='
 
@@ -83,4 +83,4 @@ def get_flag_page():
 
 if __name__ == "__main__":
   debug = False if os.getenv("ENV") == "PRODUCTION" else True
-  app.run(host="0.0.0.0", port=8000, debug=debug)
+  app.run(host="0.0.0.0", port=7004, debug=debug)

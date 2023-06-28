@@ -30,12 +30,12 @@ services:
     depends_on:
       - db
     ports:
-      - "0.0.0.0:27000:27000"
-      - "0.0.0.0:27001:27001"
+      - "0.0.0.0:7002:27000"
+      - "0.0.0.0:7003:27001"
     environment:
       ASPNETCORE_DB_CONN: "host=database-host; port=5432; database=XssDb; username=xss; password=xss"
-      ASPNETCORE_HTTP_PORT: https://+:27001 
-      ASPNETCORE_URLS: http://+:27000
+      ASPNETCORE_HTTP_PORT: https://+:7003 
+      ASPNETCORE_URLS: http://+:7002
       CTF_FLAG: HITS{go_cum_yourself}
 
     restart: always
