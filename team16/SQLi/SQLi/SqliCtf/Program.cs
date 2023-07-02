@@ -16,7 +16,7 @@ app.UseSwaggerUI();
 
 await app.InitDb();
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
