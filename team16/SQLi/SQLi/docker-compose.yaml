@@ -27,7 +27,5 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=ilikehex
       - POSTGRES_DB=testdb
-    ports:
-      - "5433"
     networks:
       - ctfnet

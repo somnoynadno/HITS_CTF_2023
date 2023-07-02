@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile
     restart: always
     ports:
-      - 7005:7005
+      - 7005:5000
     depends_on:
       - db
   db:
