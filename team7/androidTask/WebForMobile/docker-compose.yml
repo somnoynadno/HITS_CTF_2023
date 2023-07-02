@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  webformobile:
+    image: ${DOCKER_REGISTRY-}webformobile
+    build:
+      context: .
+      dockerfile: WebForMobile/Dockerfile
