@@ -1,5 +1,5 @@
 # Your secret flag
-FLAG_TEXT = "M1niecr4ft моя жизнь"
+FLAG_TEXT = "m1n3cr4ft_1s_my_l1fe"
 
 # True qr code for your text in flag
 RESULT_FILE_NAME = "default.png"
