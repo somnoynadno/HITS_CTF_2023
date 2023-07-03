@@ -37,8 +37,8 @@ class SignInViewModel : ViewModel() {
         viewModelScope.launch {
             val sharedPref = SharedPref(context)
             val client = OkHttpClient.Builder().apply {
-                val logLevel = HttpLoggingInterceptor.Level.BODY
-                addInterceptor(HttpLoggingInterceptor().setLevel(logLevel))
+//                val logLevel = HttpLoggingInterceptor.Level.BODY
+//                addInterceptor(HttpLoggingInterceptor().setLevel(logLevel))
                 addInterceptor(AuthInterceptor(sharedPref))
             }.build()
             val api = Retrofit.Builder()
